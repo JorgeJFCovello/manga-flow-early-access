@@ -43,9 +43,9 @@ function App() {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'multipart/form-data'
         },
-        body: formData
+        body: JSON.stringify({...formData})
       });
 
       const result = await response.json();
