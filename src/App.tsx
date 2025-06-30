@@ -43,9 +43,16 @@ function App() {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({...formData})
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          email,
+          subject: 'New MangaFlow Early Access Signup',
+          message: `New early access signup from: ${email}`,
+          from_name: 'MangaFlow Landing Page',
+          redirect: 'false'
+        })
       });
 
       const result = await response.json();
